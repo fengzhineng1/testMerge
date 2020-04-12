@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sun{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .intel{
+            font-size: 100px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -120px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oSun = document.querySelector('.sun');
+            var oIntel = document.querySelector('.intel');
+
+            oSun.onmousedown = function(ev){
+                document.onmousemove = function(ev){
+                    oSun.style.left = ev.pageX-oSun.offsetWidth/2+'px';
+                    oSun.style.top = ev.pageY -oSun.offsetHeight/2+'px';
+                    var x = oIntel.offsetLeft + oIntel.offsetWidth/2 - ev.pageX;
+                    var y = oIntel.offsetTop + oIntel.offsetHeight/2 - ev.pageY;
+                    var dis = Math.sqrt(x*x+y*y);
+                    console.log(oIntel.style.textShadow);
+                    oIntel.style.textShadow = x/3+'px '+y/3+'px '+ dis/10 + 'px ' + '#000';
+                };
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <div class="sun"></div>
+    <div class="intel">智能社</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: black;
+        }
+    </style>
+    <script>
+        function setC3style(obj,iName,iValue){
+            obj.style['Webkit'+iName.charAt(0).toUpperCase()+iName.substring(1)] = iValue;
+            obj.style['Moz'+iName.charAt(0).toUpperCase()+iName.substring(1)] = iValue;
+            obj.style['ms'+iName.charAt(0).toUpperCase()+iName.substring(1)] = iValue;
+            obj.style['O'+iName.charAt(0).toUpperCase()+iName.substring(1)] = iValue;
+            obj.style.transtion = iValue;
+        }
+        window.onload = function(){
+            var oBox = document.querySelector('#box');
+            oBox.onclick = function(){
+                setC3style(oBox,'transition','3s all ease');
+                oBox.style.width = 500+'px';
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

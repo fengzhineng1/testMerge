@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        @keyframes demo {
+            from{left:0;}
+            to{left:-113px;}
+        }
+        #wrap{
+            width: 113px;
+            height: 400px;
+            border: 1px solid black;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #box{
+            width: 400px;
+            height: 400px;
+            background: -webkit-repeating-linear-gradient(-45deg,red 0,red 20px,blue 20px,blue 40px,white 40px,white 60px,blue 60px,blue 80px);
+            top: 0;
+            left: 0;
+            position: absolute;
+            animation: demo 1s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box"></div>
+    </div>
+</body>
+</html>
